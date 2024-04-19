@@ -1,0 +1,28 @@
+<div class='container'>
+	<form id='bookForm' action='/book' method='post'>
+		<h1>Registro de Libro</h1>
+		<label for='name'>Nombre del libro:</label>
+		<input type='text' id='name' name='title' required /><br />
+
+		<label for='pages'>Cantidad de páginas:</label>
+		<input type='number' id='pages' name='pages' required min='1' /><br />
+
+		<label for='author'>Autor del libro:</label>
+		<input type='text' id='author' name='author' required /><br />
+
+		<input type='submit' value='Registrar' />
+	</form>
+
+	<div class='card-container'>
+		{{#each books}}
+			<div class='card'>
+				<h3>{{this.title}}</h3>
+				<p>Autor: {{this.author}}</p>
+				<p class='pages'>Páginas: {{this.pages}}</p>
+			</div>
+		{{/each}}
+	</div>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='js/home.js'></script>
